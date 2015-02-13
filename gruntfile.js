@@ -1,5 +1,12 @@
 module.exports = function(grunt) {
 
+    var infoBanner = '/**!\n' +
+                     ' * <%= pkg.name %> \n' +
+                     ' * version: <%= pkg.version %>\n' +
+                     ' * date: <%= grunt.template.today("yyyy-mm-dd") %>\n'+
+                     ' * url: <%= pkg.repository.url %>\n' +
+                     ' */\n';
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		less: {
@@ -29,20 +36,28 @@ module.exports = function(grunt) {
 				devel: true
 			}
 		},
+        concat: {
+            options: {
+                stripBanners: true,
+                banner: infoBanner,
+            },
+            dist: {
+                dest: 'js/hostelapp.js',
+                src: [
+                    'src/js/app.js',
+                    'src/js/controllers.js'
+                ]
+            },
+        },
 		uglify: {
             options: {
-                banner: '/**!\n' +
-                        ' * <%= pkg.name %> \n' +
-                        ' * version: <%= pkg.version %>\n' +
-                        ' * date: <%= grunt.template.today("yyyy-mm-dd") %>\n'+
-                        ' * url: <%= pkg.repository.url %>\n' +
-                        ' * \n' +
-                        ' */\n',
-                sourceMap: true
+                banner: infoBanner,
+                sourceMap: true,
+                sourceMapIncludeSources: true
             },
             my_target: {
                 files: {
-                    'js/hostelapp.min.js': ['src/js/app.js']
+                    'js/hostelapp.min.js': ['js/hostelapp.js']
                 }
             }
         },
@@ -58,9 +73,17 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: ['**/*.js'],
-                tasks: ['jshint', 'uglify'],
+                tasks: ['jshint', 'concat'],
                 options: {
                     spawn: false
+                }
+            }
+        },
+        jsdoc : {
+            dist : {
+                src: ['src/js/**/*.js'],
+                options: {
+                    destination: 'doc'
                 }
             }
         },
@@ -86,12 +109,19 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-testem');
 	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('test', ['testem:run:unit']);
-	grunt.registerTask('default', ['less', 'jshint', 'uglify', 'watch']);
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    grunt.loadNpmTasks('grunt-contrib-testem');
+
+	grunt.loadNpmTasks('grunt-jsdoc');
+
+    grunt.registerTask('test', ['testem:run:unit']);
+    grunt.registerTask('doc', ['jsdoc']);
+	grunt.registerTask('min', ['uglify']);
+	grunt.registerTask('default', ['less', 'jshint', 'concat', 'watch']);
 
 }

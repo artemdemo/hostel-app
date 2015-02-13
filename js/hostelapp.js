@@ -1,3 +1,9 @@
+/**!
+ * hostelapp 
+ * version: 0.1.0
+ * date: 2015-02-14
+ * url: https://github.com/artemdemo/hostel-app.git
+ */
 var hostelApp = angular.module('hostelApp', ['ionic'])
 
 .run(['$ionicPlatform', function($ionicPlatform) {
@@ -23,3 +29,16 @@ var hostelApp = angular.module('hostelApp', ['ionic'])
 
 	$urlRouterProvider.otherwise('/');
 }]);
+
+(function( app ){
+	"use strict";
+	/**
+	 * Home Page Controller
+	 *
+	 * @class homeCtrl
+	 * @param $scope
+	 */
+	var homeCtrl = function($scope) {};
+
+	app.controller('homeCtrl', ['$scope', homeCtrl]);
+})( hostelApp );
