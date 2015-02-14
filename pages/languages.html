@@ -1,0 +1,29 @@
+<ion-modal-view>
+	<ion-header-bar>
+		<h1 class="title">{{ 'CHOOSE_LNG' | translate }}</h1>
+	</ion-header-bar>
+	<ion-content>
+		<form class="list">
+			<label class="item item-radio">
+				<input type="radio" name="group" ng-model="settings.language" value="en">
+				<div class="item-content">English</div>
+				<i class="radio-icon ion-checkmark"></i>
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="group" ng-model="settings.language" value="ru">
+				<div class="item-content">Russian</div>
+				<i class="radio-icon ion-checkmark"></i>
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="group" ng-model="settings.language" value="de">
+				<div class="item-content">German</div>
+				<i class="radio-icon ion-checkmark"></i>
+			</label>
+		</form>
+		<div class="padding">
+			<button class="button button-block button-outline button-assertive" ng-click="setLanguage()">
+				{{ 'SAVE' | translate }}
+			</button>
+		</div>
+	</ion-content>
+</ion-modal-view>

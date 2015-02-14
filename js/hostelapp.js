@@ -56,6 +56,10 @@ function(
 		.state('contact', {
 			url: '/contact',
 			templateUrl: 'pages/contact.html'
+		})
+		.state('order', {
+			url: '/order/:roomtype',
+			templateUrl: 'pages/order.html'
 		});
 
 	// Default routing
@@ -65,14 +69,42 @@ function(
 (function( app ){
 	"use strict";
 	/**
-	 * Main Controller
+	 * Home Page Controller
 	 *
-	 * @class mainCtrl
+	 * @class homeCtrl
+	 * @memberof Controllers
 	 * @param $scope
+	 * @param $ionicModal
+	 * @param $translate
+	 * @param settingsFactory
 	 */
-	var mainCtrl = function($scope) {};
+	var homeCtrl = function($scope, $ionicModal, $translate, settingsFactory) {
 
-	app.controller('mainCtrl', ['$scope', mainCtrl]);
+		$translate.use( settingsFactory.loadLanguage() );
+
+		$ionicModal.fromTemplateUrl('pages/languages.html', {
+			scope: $scope,
+			animation: 'slide-in-up'
+		}).then(function(modal) {
+			$scope.modal = modal;
+		});
+
+		$scope.settings = {};
+		$scope.settings.language = settingsFactory.loadLanguage();
+
+		$scope.openLanguages = function(){
+			$scope.modal.show();
+		};
+
+		$scope.setLanguage = function() {
+			$translate.use( $scope.settings.language );
+			settingsFactory.saveLanguage( $scope.settings.language );
+			$scope.modal.hide();	
+		};
+		
+	};
+
+	app.controller('homeCtrl', ['$scope', '$ionicModal', '$translate', 'settingsFactory', homeCtrl]);
 })( hostelApp );
 
 
@@ -81,8 +113,10 @@ function(
 	/**
 	 * Rooms Controller
 	 *
-	 * @class mainCtrl
+	 * @class roomsCtrl
+	 * @memberof Controllers
 	 * @param $scope
+	 * @param $translate
 	 */
 	var roomsCtrl = function($scope, $translate) {
 		$translate('STN_ROOM_PRICE').then(function(str){
@@ -103,4 +137,130 @@ function(
 	};
 
 	app.controller('roomsCtrl', ['$scope', '$translate', roomsCtrl]);
+})( hostelApp );
+
+
+(function( app ){
+	"use strict";
+	/**
+	 * Contact Controller
+	 *
+	 * @class contactCtrl
+	 * @memberof Controllers
+	 * @param $scope
+	 * @param $translate
+	 * @param $sce
+	 */
+	var contactCtrl = function($scope, $translate, $sce) {
+		var addrStr;
+		var url = 'https://maps.google.com?saddr=Current+Location&daddr=';
+
+		$translate('GOOGLE_ADDR').then(function(locationAddr){
+			addrStr = locationAddr.replace(new RegExp(' ', 'g'), '+');
+			$scope.googleMapUrl = $sce.trustAsResourceUrl( url + addrStr );
+		});
+	};
+
+	app.controller('mainCtrl', ['$scope', '$translate', '$sce', contactCtrl]);
+})( hostelApp );
+
+
+(function( app ){
+	"use strict";
+	/**
+	 * Order Controller
+	 *
+	 * @class orderCtrl
+	 * @memberof Controllers
+	 * @param $scope
+	 */
+	var orderCtrl = function($scope) {
+		
+		$scope.txt = 'AAA';
+	};
+
+	app.controller('orderCtrl', ['$scope', orderCtrl]);
+})( hostelApp );
+
+
+(function( app ){
+	"use strict";
+	/**
+	 * Google Map Direcive
+	 *
+	 * @class googleMap
+	 * @memberof Directives
+	 */
+	var googleMapDirective = function($sce, $window, $translate) {
+		var API_KEY = 'AIzaSyBXWIAGNtGdc-afjo6s4o1jG0GikSJzd14';
+
+		var template = [
+			'<iframe ',
+  			'width="{{ width }}" ',
+  			'height="{{ height }}" ',
+  			'frameborder="0" style="border:0" ',
+  			'src="{{ url }}">',
+			'</iframe>'].join('');
+
+		var link = function(scope, element, attr) {
+			var addrStr;
+			scope.width = $window.innerWidth;
+			scope.height = $window.innerHeight - element[0].offsetTop;
+
+			$translate('GOOGLE_ADDR').then(function(locationAddr){
+				addrStr = locationAddr.replace(new RegExp(' ', 'g'), '+');
+				scope.url = $sce.trustAsResourceUrl( 'https://www.google.com/maps/embed/v1/place?key=' + API_KEY + '&q=' + addrStr );
+			});
+		};
+		return {
+			restrict: 'E',
+			scope: {},
+			replace: false,
+			template: template,
+			link: link
+		};
+	};
+
+	app.directive('googleMap', ['$sce', '$window', '$translate', googleMapDirective]);
+
+})( hostelApp );
+(function( app ){
+	/**
+	 * Settings Factory
+	 *
+	 * @class settingsFactory
+	 * @memberof Factories
+	 */
+	var settingsFactory = function() {
+		var settingsFactory = {};
+
+		/**
+		 * Save language name to localstorage
+		 *
+		 * @function saveLanguage
+		 * @memberof Factories.settingsFactory
+		 * @param newLng
+		 */
+		settingsFactory.saveLanguage = function( newLng ) {
+			localStorage.setItem("lng", newLng);
+		};
+
+		/**
+		 * Load language name from localstorage
+		 *
+		 * @function loadLanguage
+		 * @memberof Factories.settingsFactory
+		 * @return {String} - default "en"
+		 */
+		settingsFactory.loadLanguage = function() {
+			var defaultLng = "en";
+			var lng = localStorage.getItem("lng");
+			return  !! lng ? lng : defaultLng;
+		};
+
+		return settingsFactory;
+	};
+
+	app.factory('settingsFactory', [settingsFactory]);
+
 })( hostelApp );

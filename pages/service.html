@@ -1,4 +1,4 @@
-<ion-view class="contact-page" view-title="{{ 'SERVICES' | translate }}">
+<ion-view class="service-page" view-title="{{ 'SERVICES' | translate }}">
 	<ion-nav-bar class="bar-light">
 		<ion-nav-back-button></ion-nav-back-button>
 	</ion-nav-bar>
@@ -7,7 +7,7 @@
 	</ion-content>
 	<ion-content class="with-header-content" padding="true">
 		<p>
-			{{ 'SERICE_INTRO' | translate }}
+			{{ 'SERVICE_INTRO' | translate }}
 			<ul class="services">
 				<li>{{ 'SERVICE_01' | translate }}</li>
 				<li>{{ 'SERVICE_02' | translate }}</li>
@@ -38,5 +38,9 @@
 		<p>{{ 'CLOSE_DOORS' | translate }}</p>
 		<p>{{ 'EARLY_ARRIVE' | translate }}</p>
 		<p>{{ 'ADDITIONAL_PENNY' | translate }}</p>
+
+		<a class="button button-block button-outline button-assertive" href="#/rooms">
+			{{ 'ROOMS_PRICES' | translate }}
+		</a>
 	</ion-content>
 </ion-view>

@@ -2,7 +2,7 @@
 	<ion-nav-bar class="bar-light">
 		<ion-nav-back-button></ion-nav-back-button>
 	</ion-nav-bar>
-	<ion-content>
+	<ion-content has-bouncing="false">
 		<div class="list">
 			<a class="item item-icon-left" href="mailto:email@site.com">
 				<i class="icon ion-email"></i>
@@ -12,10 +12,11 @@
 				<i class="icon ion-ios7-telephone"></i>
 				{{ 'CALL_US' | translate }} +7123123132
 			</a>
-			<a class="item item-icon-left" href="#/map">
+			<a class="item item-icon-left" ng-href="{{ googleMapUrl }}">
 				<i class="icon ion-ios7-location"></i>
 				{{ 'LOCATION' | translate }}
 			</a>
 		</div>
+		<google-map></google-map>
 	</ion-content>
 </ion-view>

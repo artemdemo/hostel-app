@@ -7,6 +7,11 @@ h1,
 .button {
   font-family: 'Open Sans', sans-serif;
 }
+google-map {
+  display: block;
+  z-index: 1;
+  height: 360px;
+}
 /**
  * Top page bar
  */
@@ -34,6 +39,12 @@ h1,
  */
 .home-page {
   background: url('../img/home_bg.png');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+.home-page .menu-btn {
+  color: white;
+  font-weight: 700;
 }
 .home-page h1 {
   color: white;
@@ -54,4 +65,10 @@ h1,
  */
 .rooms-page h3 {
   color: #b60e0e;
+}
+/**
+ * Contacts page
+ */
+.contact-page .list {
+  margin-bottom: 0;
 }

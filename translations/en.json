@@ -5,7 +5,10 @@
 	"SERVICE": "Service",
 	"SERVICES": "Services",
 	"CONTACT": "Contact",
-	"SERICE_INTRO": "Our hostel has 12 private rooms, equipped with everything needed for a comfortable stay, and offers the following amenities.",
+	"CHOOSE_LNG": "Choose language",
+	"LNG": "Language",
+	"SAVE": "Save",
+	"SERVICE_INTRO": "Our hostel has 12 private rooms, equipped with everything needed for a comfortable stay, and offers the following amenities.",
 	"SERVICE_01": "Free tea & coffee",
 	"SERVICE_02": "Free WI FI",
 	"SERVICE_03": "Free Internet access",
@@ -27,7 +30,7 @@
 	"CHECK_INFO": "from 02:00 PM - 11:00 PM",
 	"DEPARTURE": "Departure",
 	"DEPARTURE_INFO": "to 12:00 noon",
-	"CLOSE_DOORS": "Please note that on the night (23:00 to 07:00) Door Hostel City Loft Rooms are closed.",
+	"CLOSE_DOORS": "Please note that on the night (23:00 to 07:00) Door Hostel are closed.",
 	"EARLY_ARRIVE": "If you arrive before 7:00 am, we ask you to inform us in advance.",
 	"ADDITIONAL_PENNY": "In case of early arrival (6:00 to 14:00) and in the case of a late check-out (12:00 to 18:00) - accommodation paid additively at a price of 50% of the confirmed rate.",
 	"STN_ROOM": "Standard room",
@@ -51,7 +54,20 @@
 	"WND_ROOM_DSCR": "Description: four bunk beds, two large shelves for clothes, bed mats, table",
 
 	"OVERLOOKING": "Overlooking Nikitsky Gate Square",
+	"ORDER_NOW": "Order now",
+	"ORDER": "Order",
 	"EMAIL_US": "Email us",
 	"CALL_US": "Call us",
-	"LOCATION": "127123 Moscow, Kremlin street"
+	"LOCATION": "Moscow 103073, Kremlin",
+	"GOOGLE_ADDR": "Russia, Moscow 103073, Kremlin",
+
+	"FNAME": "First Name",
+	"LNAME": "Last Name",
+	"NGUESTS": "Number of Guests",
+	"DATE_IN": "Date in",
+	"DATE_OUT": "Date out",
+	"U_PNONE": "Your phone number",
+	"U_EMAIL": "Your email",
+	"COMMENTS": "Comments",
+	"SUBMIT": "Submit"
 }

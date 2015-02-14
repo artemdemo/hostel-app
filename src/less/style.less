@@ -7,6 +7,8 @@ body {
 }
 body, h1, .button { font-family: 'Open Sans', sans-serif; }
 
+google-map { display: block; z-index: 1; height: 360px; }
+
 /**
  * Top page bar
  */
@@ -38,6 +40,13 @@ body, h1, .button { font-family: 'Open Sans', sans-serif; }
  */
 .home-page {
 	background: url('../img/home_bg.png');
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+
+	.menu-btn {
+		color: white;
+		font-weight: 700;
+	}
 
 	h1 {
 		color: white;
@@ -64,4 +73,11 @@ body, h1, .button { font-family: 'Open Sans', sans-serif; }
 	h3 {
 		color: @title_color;
 	}
+}
+
+/**
+ * Contacts page
+ */
+.contact-page .list {
+	margin-bottom: 0;
 }

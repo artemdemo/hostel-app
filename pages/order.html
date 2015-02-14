@@ -1,0 +1,38 @@
+<ion-view class="order-page" view-title="{{ 'ORDER' | translate }}" ng-controller="orderCtrl">
+	<ion-nav-bar class="bar-light">
+		<ion-nav-back-button></ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-content padding="true">	
+		<div class="list">
+			<label class="item item-input">
+				<input type="text" placeholder="{{ 'FNAME' | translate }}">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="{{ 'LNAME' | translate }}">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="{{ 'NGUESTS' | translate }}">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="{{ 'DATE_IN' | translate }}">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="{{ 'DATE_OUT' | translate }}">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="{{ 'U_PNONE' | translate }}">
+			</label>
+			<label class="item item-input">
+				<input type="text" placeholder="{{ 'U_EMAIL' | translate }}">
+			</label>
+			<label class="item item-input">
+				<textarea placeholder="{{ 'COMMENTS' | translate }}"></textarea>
+			</label>
+		</div>
+		<div class="padding">
+			<button class="button button-block button-outline button-assertive" ng-click="placeOrder()">
+				{{ 'SUBMIT' | translate }}
+			</button>
+		</div>
+	</ion-content>
+</ion-view>

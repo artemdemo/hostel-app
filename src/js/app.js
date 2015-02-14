@@ -50,6 +50,10 @@ function(
 		.state('contact', {
 			url: '/contact',
 			templateUrl: 'pages/contact.html'
+		})
+		.state('order', {
+			url: '/order/:roomtype',
+			templateUrl: 'pages/order.html'
 		});
 
 	// Default routing
