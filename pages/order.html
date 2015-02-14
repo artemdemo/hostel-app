@@ -2,8 +2,14 @@
 	<ion-nav-bar class="bar-light">
 		<ion-nav-back-button></ion-nav-back-button>
 	</ion-nav-bar>
-	<ion-content padding="true">	
+	<ion-nav-buttons side="right">
+		<a class="button button-icon icon ion-ios7-home" href="#/"></a>
+	</ion-nav-buttons>
+	<ion-content padding="true">
 		<div class="list">
+			<label class="item item-divider">
+				{{  roomName }}
+			</label>
 			<label class="item item-input">
 				<input type="text" placeholder="{{ 'FNAME' | translate }}">
 			</label>

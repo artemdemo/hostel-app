@@ -109,12 +109,17 @@
 	 * @class orderCtrl
 	 * @memberof Controllers
 	 * @param $scope
+	 * @param $stateParams
+	 * @param $translate
 	 */
-	var orderCtrl = function($scope) {
+	var orderCtrl = function($scope, $stateParams, $translate) {
+
+		$translate( $stateParams.roomname ).then(function( roomname ){
+			$scope.roomName = roomname;
+		});
 		
-		$scope.txt = 'AAA';
 	};
 
-	app.controller('orderCtrl', ['$scope', orderCtrl]);
+	app.controller('orderCtrl', ['$scope', '$stateParams', '$translate', orderCtrl]);
 })( hostelApp );
 

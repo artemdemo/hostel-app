@@ -52,7 +52,7 @@ function(
 			templateUrl: 'pages/contact.html'
 		})
 		.state('order', {
-			url: '/order/:roomtype',
+			url: '/order/:roomname',
 			templateUrl: 'pages/order.html'
 		});
 
