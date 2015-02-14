@@ -1,3 +1,67 @@
+
+@title_color: rgb(182, 14, 14);
+
+body {
+	font-size: 18px;
+	color: rgb(44, 44, 44);
+}
+body, h1, .button { font-family: 'Open Sans', sans-serif; }
+
+/**
+ * Top page bar
+ */
+.bar.bar-header {
+	background-color: @title_color;
+	height: 45px;
+	.title {
+		color: white;
+	}
+	.button.button-clear {
+		color: white;
+	}
+}
+
+/**
+ * Scrollable header
+ */
+.header-content .scroll {
+	img {
+		display: block;
+	}
+}
+.with-header-content {
+	top: 195px;
+}
+
+/**
+ * Homepage
+ */
 .home-page {
 	background: url('../img/home_bg.png');
+
+	h1 {
+		color: white;
+		margin-top: 25%;
+		font-size: 55px;
+		text-align: center;
+	}
+
+	.home-menu {
+		margin: 60% 20px 0 20px;
+
+		.button {
+			background-color: rgba(255, 255, 255, 0.73);
+			color: #242424;
+			font-size: 100%;
+		}
+	}
+}
+
+/**
+ * Rooms & prices page
+ */
+.rooms-page {
+	h3 {
+		color: @title_color;
+	}
 }

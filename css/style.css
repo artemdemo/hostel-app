@@ -1,3 +1,57 @@
+body {
+  font-size: 18px;
+  color: #2c2c2c;
+}
+body,
+h1,
+.button {
+  font-family: 'Open Sans', sans-serif;
+}
+/**
+ * Top page bar
+ */
+.bar.bar-header {
+  background-color: #b60e0e;
+  height: 45px;
+}
+.bar.bar-header .title {
+  color: white;
+}
+.bar.bar-header .button.button-clear {
+  color: white;
+}
+/**
+ * Scrollable header
+ */
+.header-content .scroll img {
+  display: block;
+}
+.with-header-content {
+  top: 195px;
+}
+/**
+ * Homepage
+ */
 .home-page {
   background: url('../img/home_bg.png');
+}
+.home-page h1 {
+  color: white;
+  margin-top: 25%;
+  font-size: 55px;
+  text-align: center;
+}
+.home-page .home-menu {
+  margin: 60% 20px 0 20px;
+}
+.home-page .home-menu .button {
+  background-color: rgba(255, 255, 255, 0.73);
+  color: #242424;
+  font-size: 100%;
+}
+/**
+ * Rooms & prices page
+ */
+.rooms-page h3 {
+  color: #b60e0e;
 }

@@ -6,6 +6,11 @@ module.exports = function(grunt) {
                      ' * date: <%= grunt.template.today("yyyy-mm-dd") %>\n'+
                      ' * url: <%= pkg.repository.url %>\n' +
                      ' */\n';
+    var lessFiles = ["src/less/style.less"];
+    var jsFiles = [
+                    'src/js/app.js',
+                    'src/js/controllers.js'
+                  ];
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -16,12 +21,21 @@ module.exports = function(grunt) {
                     optimization: 2
                 },
                 files: {
-                    "css/style.css": "src/less/style.less"
+                    "css/style.css": lessFiles
+                }
+            },
+            production: {
+                options: {
+                    compress: true,
+                    optimization: 2
+                },
+                files: {
+                    "css/style.min.css": lessFiles
                 }
             }
         },
 		jshint: {
-			all: ['src/js/**/*.js', 'src/test/**/*.js'],
+			all: ['src/js/*.js', 'src/test/**/*.js'],
 			options: {
 				globals: {
 					_: false,
@@ -43,10 +57,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 dest: 'js/hostelapp.js',
-                src: [
-                    'src/js/app.js',
-                    'src/js/controllers.js'
-                ]
+                src: jsFiles
             },
         },
 		uglify: {
@@ -66,7 +77,7 @@ module.exports = function(grunt) {
                 files: [
                     'src/less/*.less'
                 ],
-                tasks: ['less'],
+                tasks: ['less:development'],
                 options: {
                     nospawn: true
                 }
@@ -92,7 +103,7 @@ module.exports = function(grunt) {
 				options: {
 					framework: 'jasmine2',
 					launch_in_dev: ['PhantomJS'],
-					before_tests: ['grunt jshint', 'grunt less'],
+					before_tests: ['grunt jshint', 'grunt less:development'],
 					serve_files: [
 						//'node_modules/lodash/lodash.js',
 						//'node_modules/jquery/dist/jquery.js',
@@ -112,16 +123,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
-
     grunt.loadNpmTasks('grunt-contrib-uglify');
-
     grunt.loadNpmTasks('grunt-contrib-testem');
-
 	grunt.loadNpmTasks('grunt-jsdoc');
 
     grunt.registerTask('test', ['testem:run:unit']);
     grunt.registerTask('doc', ['jsdoc']);
-	grunt.registerTask('min', ['uglify']);
-	grunt.registerTask('default', ['less', 'jshint', 'concat', 'watch']);
+	grunt.registerTask('min', ['uglify', 'less:production']);
+	grunt.registerTask('default', ['less:development', 'jshint', 'concat', 'watch']);
 
 }
