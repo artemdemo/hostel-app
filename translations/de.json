@@ -60,5 +60,15 @@
 	"EMAIL_US": "Mailen Sie uns",
 	"CALL_US": "Rufen Sie uns an",
 	"LOCATION": "Moscow 103073, Kremlin",
-	"GOOGLE_ADDR": "Russia, Moscow 103073, Kremlin"
+	"GOOGLE_ADDR": "Russia, Moscow 103073, Kremlin",
+
+	"FNAME": "First Name",
+	"LNAME": "Last Name",
+	"NGUESTS": "Number of Guests",
+	"DATE_IN": "Date in",
+	"DATE_OUT": "Date out",
+	"U_PNONE": "Your phone number",
+	"U_EMAIL": "Your email",
+	"COMMENTS": "Comments",
+	"SUBMIT": "Submit"
 }

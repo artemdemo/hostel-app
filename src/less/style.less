@@ -1,11 +1,12 @@
 
 @title_color: rgb(182, 14, 14);
+@text_color: rgb(44, 44, 44);
 
-body {
-	font-size: 18px;
-	color: rgb(44, 44, 44);
+body, .popup-title {
+	font-size: 16px;
+	color: @text_color;
 }
-body, h1, .button { font-family: 'Open Sans', sans-serif; }
+body, h1, h2, h3, .button { font-family: 'Open Sans', sans-serif; color: @text_color; }
 
 google-map { display: block; z-index: 1; height: 360px; }
 
@@ -80,4 +81,24 @@ google-map { display: block; z-index: 1; height: 360px; }
  */
 .contact-page .list {
 	margin-bottom: 0;
+}
+
+/**
+ * Order page
+ */
+ // Fix for some strange design bug
+ @order-page-item-border: 1px solid #ddd;
+.order-page {
+	.item {
+		border: 0;
+		border-top: @order-page-item-border;
+		border-left: @order-page-item-border;
+		border-right: @order-page-item-border;
+	}
+	.item:last-of-type {
+		border-bottom: @order-page-item-border;	
+	}
+	input.ng-invalid {
+		border: 1px solid rgb(255, 149, 149);
+	}
 }

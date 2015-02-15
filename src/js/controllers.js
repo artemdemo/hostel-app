@@ -112,14 +112,74 @@
 	 * @param $stateParams
 	 * @param $translate
 	 */
-	var orderCtrl = function($scope, $stateParams, $translate) {
+	var orderCtrl = function($scope, $q, $stateParams, $state, $translate, $ionicPopup) {
+
+		var today, tomorrow;
 
 		$translate( $stateParams.roomname ).then(function( roomname ){
 			$scope.roomName = roomname;
 		});
-		
+
+		today = new Date();
+		tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+
+		// objet with order data
+		$scope.order = {
+			fname: '',
+			lname: '',
+			nguests: 1,
+			datein: today,
+			dateout: tomorrow,
+			phone: '',
+			email: '',
+			comments: ''
+		};
+
+		$scope.minDateIn = today.format('Y-m-d');
+		$scope.minDateOut = tomorrow.format('Y-m-d');
+
+		$scope.placeOrder = function( orderform ) {
+			if ( orderform.$valid ) {
+				$q.all([
+					$translate('THANK_YOU'),
+					$translate('U_ORDER_IN_WORK')
+				]).then(function( values ){
+					$ionicPopup.show({
+						title: values[0],
+						template: values[1],
+						scope: $scope,
+						buttons: [
+							{
+								text: 'Ok',
+								type: 'button-positive',
+								onTap: function(e) {
+									$state.go('home');
+								}
+							}
+						]
+					});
+				});
+			} else {
+				$q.all([
+					$translate('NOTICE'),
+					$translate('FORM_GENERAL_ERROR')
+				]).then(function( values ){
+					$ionicPopup.show({
+						title: values[0],
+						template: values[1],
+						scope: $scope,
+						buttons: [
+							{
+								text: 'Ok',
+								type: 'button-assertive'
+							}
+						]
+					});
+				});
+			}
+		};
 	};
 
-	app.controller('orderCtrl', ['$scope', '$stateParams', '$translate', orderCtrl]);
+	app.controller('orderCtrl', ['$scope', '$q', '$stateParams', '$state', '$translate', '$ionicPopup', orderCtrl]);
 })( hostelApp );
 

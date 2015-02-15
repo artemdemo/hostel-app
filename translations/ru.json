@@ -59,5 +59,15 @@
 	"EMAIL_US": "Эл. почта",
 	"CALL_US": "Позвоните",
 	"LOCATION": "Москва 103073, Кремль",
-	"GOOGLE_ADDR": "Russia, Moscow 103073, Kremlin"
+	"GOOGLE_ADDR": "Russia, Moscow 103073, Kremlin",
+
+	"FNAME": "Имя",
+	"LNAME": "Фамилия",
+	"NGUESTS": "Кол-во гостей",
+	"DATE_IN": "Заезд",
+	"DATE_OUT": "Выезд",
+	"U_PNONE": "Ваш номер телефона",
+	"U_EMAIL": "Ваш адрес эл. почты",
+	"COMMENTS": "Комментарии",
+	"SUBMIT": "Отправить"
 }

@@ -69,5 +69,9 @@
 	"U_PNONE": "Your phone number",
 	"U_EMAIL": "Your email",
 	"COMMENTS": "Comments",
-	"SUBMIT": "Submit"
+	"SUBMIT": "Submit",
+	"NOTICE": "Notice",
+	"FORM_GENERAL_ERROR": "Please fill all required fields",
+	"THANK_YOU": "Thank you",
+	"U_ORDER_IN_WORK": "Thank you for your order. Our representative will be in touch with you"
 }
