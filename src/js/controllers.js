@@ -138,7 +138,10 @@
 		$scope.minDateIn = today.format('Y-m-d');
 		$scope.minDateOut = tomorrow.format('Y-m-d');
 
+		$scope.showValidation = false;
+
 		$scope.placeOrder = function( orderform ) {
+			$scope.showValidation = true;
 			if ( orderform.$valid ) {
 				$q.all([
 					$translate('THANK_YOU'),

@@ -44,9 +44,10 @@ google-map { display: block; z-index: 1; height: 360px; }
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 
-	.menu-btn {
+	.button.menu-btn {
 		color: white;
 		font-weight: 700;
+		margin: 8px 0 0 8px;
 	}
 
 	h1 {
@@ -94,11 +95,16 @@ google-map { display: block; z-index: 1; height: 360px; }
 		border-top: @order-page-item-border;
 		border-left: @order-page-item-border;
 		border-right: @order-page-item-border;
+		padding: 5px;
 	}
 	.item:last-of-type {
 		border-bottom: @order-page-item-border;	
 	}
-	input.ng-invalid {
-		border: 1px solid rgb(255, 149, 149);
+	input {
+		padding: 0 0 0 5px;
+		background-color: white;
+	}
+	.error {
+		background-color: rgb(255, 149, 149);
 	}
 }

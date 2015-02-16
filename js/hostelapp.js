@@ -214,7 +214,10 @@ Date.prototype.format=function(e){var t="";var n=Date.replaceChars;for(var r=0;r
 		$scope.minDateIn = today.format('Y-m-d');
 		$scope.minDateOut = tomorrow.format('Y-m-d');
 
+		$scope.showValidation = false;
+
 		$scope.placeOrder = function( orderform ) {
+			$scope.showValidation = true;
 			if ( orderform.$valid ) {
 				$q.all([
 					$translate('THANK_YOU'),

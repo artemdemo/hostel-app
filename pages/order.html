@@ -6,31 +6,31 @@
 		<a class="button button-icon icon ion-ios7-home" href="#/"></a>
 	</ion-nav-buttons>
 	<ion-content padding="true">
-		<form name="orderform">
+		<form name="orderform" novalidate>
 			<div class="list">
 				<label class="item item-divider">
 					{{  roomName }}
 				</label>
-				<label class="item item-input">
-					<input type="text" ng-model="order.fname" placeholder="{{ 'FNAME' | translate }}" required="" />
+				<label class="item item-input" ng-class="{error: showValidation && orderform.fname.$invalid}">
+					<input type="text" name="fname" ng-model="order.fname" placeholder="{{ 'FNAME' | translate }}" required="" />
 				</label>
-				<label class="item item-input">
-					<input type="text" ng-model="order.lname" placeholder="{{ 'LNAME' | translate }}" required="">
+				<label class="item item-input" ng-class="{error: showValidation && orderform.lname.$invalid}">
+					<input type="text" name="lname" ng-model="order.lname" placeholder="{{ 'LNAME' | translate }}" required="">
 				</label>
-				<label class="item item-input">
-					<input type="number" min="1" max="10" ng-model="order.nguests" placeholder="{{ 'NGUESTS' | translate }}" required="">
+				<label class="item item-input" ng-class="{error: showValidation && orderform.nguests.$invalid}">
+					<input type="number" name="nguests" min="1" max="10" ng-model="order.nguests" placeholder="{{ 'NGUESTS' | translate }}" required="">
 				</label>
-				<label class="item item-input">
-					<input type="date" ng-model="order.datein" min="{{ minDateIn }}" placeholder="{{ 'DATE_IN' | translate }}" required="">
+				<label class="item item-input" ng-class="{error: showValidation && orderform.datein.$invalid}">
+					<input type="date" name="datein" ng-model="order.datein" min="{{ minDateIn }}" placeholder="{{ 'DATE_IN' | translate }}" required="">
 				</label>
-				<label class="item item-input">
-					<input type="date" ng-model="order.dateout" min="{{ minDateOut }}" placeholder="{{ 'DATE_OUT' | translate }}" required="">
+				<label class="item item-input" ng-class="{error: showValidation && orderform.dateout.$invalid}">
+					<input type="date" name="dateout" ng-model="order.dateout" min="{{ minDateOut }}" placeholder="{{ 'DATE_OUT' | translate }}" required="">
 				</label>
 				<label class="item item-input">
 					<input type="text"  ng-model="order.phone" placeholder="{{ 'U_PNONE' | translate }}">
 				</label>
-				<label class="item item-input">
-					<input type="email"  ng-model="order.email" placeholder="{{ 'U_EMAIL' | translate }}" required="">
+				<label class="item item-input" ng-class="{error: showValidation && orderform.email.$invalid}">
+					<input type="email" name="email" ng-model="order.email" placeholder="{{ 'U_EMAIL' | translate }}" required="">
 				</label>
 				<label class="item item-input">
 					<textarea ng-model="order.comments" placeholder="{{ 'COMMENTS' | translate }}"></textarea>

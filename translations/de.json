@@ -62,13 +62,17 @@
 	"LOCATION": "Moscow 103073, Kremlin",
 	"GOOGLE_ADDR": "Russia, Moscow 103073, Kremlin",
 
-	"FNAME": "First Name",
-	"LNAME": "Last Name",
-	"NGUESTS": "Number of Guests",
-	"DATE_IN": "Date in",
-	"DATE_OUT": "Date out",
-	"U_PNONE": "Your phone number",
-	"U_EMAIL": "Your email",
-	"COMMENTS": "Comments",
-	"SUBMIT": "Submit"
+	"FNAME": "Vorname",
+	"LNAME": "Nachname",
+	"NGUESTS": "Anzahl der Gäste",
+	"DATE_IN": "Datum in",
+	"DATE_OUT": "Datum aus",
+	"U_PNONE": "Ihre Telefonnummer",
+	"U_EMAIL": "Ihre E-Mail",
+	"COMMENTS": "Kommentare",
+	"SUBMIT": "Einreichen",
+	"NOTICE": "Ankündigung",
+	"FORM_GENERAL_ERROR": "Bitte füllen Sie alle Pflichtfelder aus",
+	"THANK_YOU": "Danke",
+	"U_ORDER_IN_WORK": "Vielen Dank für Ihre Bestellung. Unser Vertreter wird mit Ihnen in Verbindung in Kürze."
 }
