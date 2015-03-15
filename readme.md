@@ -1,5 +1,5 @@
 #Hostel App#
-Applicaton fro small hostel.<br>
+Applicaton for small hostel.<br>
 I'm using protractor to make tests
 
 ###Protractor###
