@@ -1,4 +1,9 @@
 .idea
-doc
 node_modules
-src/img
+*.log
+index.html
+!source/index.html
+source/styles/font_awesome
+source/styles/ionicons
+source/styles/material-design-iconic-font
+source/styles/onsen

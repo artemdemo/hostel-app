@@ -1,9 +1,9 @@
-#Hostel App#
-Applicaton for small hostel.<br>
-I'm using protractor to make tests
+#Hostel App
 
-###Protractor###
-Here you will find install instructions: http://angular.github.io/protractor/
+Hybrid app for small hostel.
 
-Notice, that in order to make tests protractor need running local server.
-In instructions they are using "webdriver-manager start", but we can just run "ionic serve"
+##Technologies
+
+* Webpack - https://webpack.github.io/
+* Onsen - https://onsen.io/
+* React - https://facebook.github.io/react/
