@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Page, Button } from 'react-onsenui';
+import { Page } from 'react-onsenui';
+import { Link } from 'react-router';
 
 export class MainView extends Component {
     render() {
         return (
             <Page>
-                <Button>Tap me!</Button>
+                <Link to='/coming' className='button'>Book room</Link>
             </Page>
         );
     }

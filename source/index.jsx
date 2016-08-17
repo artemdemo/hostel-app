@@ -10,6 +10,7 @@ import { store, history } from './configs';
 
 import { AppView } from './views/AppView';
 import { MainView } from './views/MainView';
+import { ComingView } from './views/ComingView';
 
 promises.polyfill();
 
@@ -18,6 +19,7 @@ render(
         <Router history={history}>
             <Route path='/' component={AppView}>
                 <IndexRoute component={MainView} />
+                <Route path='coming' component={ComingView} />
             </Route>
         </Router>
     </Provider>,
